@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Web API Example</title>
+</head>
+
+<body>
+    <button id="myBtn">Click Me</button>
+
+    <script>
+        // DOM Manipulation Example
+        document.getElementById("myBtn").addEventListener("click", () => {
+            alert("Button clicked!");
+        });
+
+        // Fetch API Example
+        fetch("https://jsonplaceholder.typicode.com/posts/1")
+            .then(response => response.json())
+            .then(data => console.log("Fetch:", data));
+
+        // Local Storage Example
+        localStorage.setItem("username", "John");
+        console.log("LocalStorage:", localStorage.getItem("username"));
+
+        // Geolocation Example
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                console.log("Geolocation:", position.coords.latitude, position.coords.longitude);
+            });
+        }
+
+        // Clipboard API Example (may require user gesture)
+        // navigator.clipboard.writeText("Copied text!");
+
+        // Notification API Example
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                new Notification("Hello from Web API!");
+            }
+        });
+    </script>
+</body>
+
+</html>
